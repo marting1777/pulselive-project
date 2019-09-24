@@ -1,5 +1,29 @@
 .Card .ImageContainer {
   height: 300px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 310px;
+}
+.Card .ImageContainer img.PlayerImage {
+  position: absolute;
+  bottom: 0;
+}
+.Card .ImageContainer .LogoContainer {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  right: 15px;
+  bottom: -60px;
+  background-color: #fff;
+  border-radius: 100%;
+  padding: 10px;
+}
+.Card .ImageContainer .LogoContainer img.TeamLogo {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 100px;
 }
 .Card .StatsContainer {
   background-color: #E70153;

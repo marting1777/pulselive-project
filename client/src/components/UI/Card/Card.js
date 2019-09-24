@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Card.css'
 
 import Aux from '../../../containers/Auxiliar/Auxiliar'
+import BackgroundPattern from '../../../assets/images/background-pattern.png'
 
 class Card extends Component {
 
@@ -9,29 +10,59 @@ class Card extends Component {
         super(props)
     }
 
+    playerImageSrcHandler = () => {
+        let playerImage
+        if (this.props.fullPlayer) {
+            const images = require.context('../../../assets/images', true);
+            playerImage = images(`./p${this.props.fullPlayer.player.id}.png`);
+        }
+        return playerImage
+    }
+
+    teamImageSrcHandler = () => {
+        let teamLogo
+        if (this.props.fullPlayer) {
+            const logos = require.context('../../../assets/logos', true);
+            teamLogo = logos(`./${this.props.fullPlayer.player.currentTeam.id}.png`)
+        }
+        return teamLogo
+    }
+
+    capitalize = (s) => {
+        if (typeof s !== 'string') return ''
+        return s.charAt(0).toUpperCase() + s.slice(1)
+    }
+
     render() {
+        let listOfStats
+        if (this.props.fullPlayer) {
+            listOfStats = this.props.fullPlayer.stats.map(stat => {
+                return  <li className="Stat" key={stat.name}>
+                            {this.capitalize(stat.name.replace('_', ' '))} <span className="StatValue">{stat.value}</span>
+                        </li>
+            })
+        }
+
         return (
             <div className="Card">
                 {this.props.fullPlayer ? 
                 <Aux>
-                    <div className="ImageContainer">
-                        <img />
+                    <div className="ImageContainer" style={{backgroundImage: `url(${BackgroundPattern})`}}>
+                        <img className="PlayerImage" src={this.playerImageSrcHandler()}/>
+                        <div className="LogoContainer">
+                            <img className="TeamLogo" src={this.teamImageSrcHandler()}/>
+                        </div>
                     </div>
                     <div className="StatsContainer">
-                
-                        <h2>{this.props.fullPlayer.player.name.first}</h2>
-                        <p>Defender</p>
+                        <h2>{this.props.fullPlayer.player.name.first} {this.props.fullPlayer.player.name.last}</h2>
+                        <p>{this.props.fullPlayer.player.info.positionInfo}</p>
                         <img className="TeamLogo"/>
                         <ul className="StatsList">
-                            <li className="Stat">Appearances <span className="StatValue">80</span></li>
-                            <li className="Stat">Goals <span className="StatValue">5</span></li>
-                            <li className="Stat">Assits <span className="StatValue">2</span></li>
-                            <li className="Stat">Goals per match <span className="StatValue">0.06</span></li>
-                            <li className="Stat">Passes per minute <span className="StatValue">0.26</span></li>
+                            {listOfStats}
                         </ul>
                     </div>  
                 </Aux>
-                : <p>Select A Player to Be Rendered</p> }
+                : null }
             </div>
         )
     }
