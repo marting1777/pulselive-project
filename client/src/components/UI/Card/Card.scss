@@ -1,0 +1,32 @@
+$pink: #E70153;
+$white: #FFFFFF;
+
+.Card {
+    .ImageContainer {
+        height: 300px;
+    }
+    .StatsContainer {
+        background-color: $pink;
+        padding: 20px;
+        h2, p {
+            color: $white;
+        }
+        .StatsList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            .Stat {
+                position: relative;
+                background: $white;
+                padding: 10px;
+                margin-bottom: 2px;
+                box-shadow: 1px 1px;
+                span.StatValue {
+                    position: absolute;
+                    right: 10px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

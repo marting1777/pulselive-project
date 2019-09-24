@@ -1,0 +1,29 @@
+.Card .ImageContainer {
+  height: 300px;
+}
+.Card .StatsContainer {
+  background-color: #E70153;
+  padding: 20px;
+}
+.Card .StatsContainer h2, .Card .StatsContainer p {
+  color: #FFFFFF;
+}
+.Card .StatsContainer .StatsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.Card .StatsContainer .StatsList .Stat {
+  position: relative;
+  background: #FFFFFF;
+  padding: 10px;
+  margin-bottom: 2px;
+  box-shadow: 1px 1px;
+}
+.Card .StatsContainer .StatsList .Stat span.StatValue {
+  position: absolute;
+  right: 10px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=Card.css.map */
