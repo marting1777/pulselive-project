@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 
-import Card from './components/UI/Card/Card'
+import Option from './components/UI/Option/Option'
 
 class App extends Component {
 
@@ -27,9 +27,7 @@ class App extends Component {
 
     createPlayersHandler = () => {
         const playersData = this.state.response.map(players => {
-            return <Card 
-                        key={players.player.id} 
-                        player={players.player.name.first}/>
+            return <Option key={players.player.id} value={players.player.id}>{players.player.name.first} {players.player.name.last}</Option>
         })
         return this.setState({ players: playersData })
     }
@@ -38,7 +36,14 @@ class App extends Component {
 
         return (
             <div className="App">
-                {this.state.players}
+                <section className="CardArea">
+                    <div className="FormSelect">
+                        <select>
+                            <option value="Select a Player...">Select a Player...</option>
+                            {this.state.players}
+                        </select>
+                    </div>
+                </section>
             </div>
         )
     }

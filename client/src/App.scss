@@ -1,0 +1,95 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333333;
+$white: #FFFFFF;
+$light-grey: #CBCBCB;
+$grey: #BBBBBB;
+$dark-grey: #888888;
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+}
+
+.CardArea {
+
+    width: 400px;
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    box-shadow: 2px 2px 2px #505050;
+
+    .FormSelect {
+    
+        background: $white;
+        overflow: hidden;
+        border: 1px solid $light-grey;
+        border-radius: 3px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.07);
+    
+        &:focus,
+        &:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+    
+        &:after {
+            content: '▾';
+            position: absolute;
+            top: 0;
+            right: 12px;
+            z-index: 1;
+            color: $grey;
+            line-height: 40px;
+            font-size: 14px;
+    
+            .ie & {
+                display: none;
+            }
+        }
+    }
+    
+    select {
+        position: relative;
+        background: transparent;
+        background-image: none;
+        display: block;
+        width: 100%;
+        outline: none;
+        color: $dark-grey;
+        cursor: pointer;
+        z-index: 2;
+        border: none;
+        padding: 10px 10px 10px 5px;
+        //(for Firefox)
+        // Removes the default select arrow.
+        text-overflow: '';
+        text-indent: 5px;
+        // End of brutal hack
+    
+        &[multiple=multiple] {
+            height: auto;
+            border: 1px solid $light-grey;
+            border-radius: 3px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.07);
+    
+            &:hover {
+                border-color: $light-grey;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+    
+        option[disabled] {
+            color: #eeeeee;
+            text-shadow: none;
+            border: none;
+        }
+    }
+    
+    select:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 $dark-grey;
+    }
+    
+    select::-ms-expand {
+        display: none;
+    }
+}
