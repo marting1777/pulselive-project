@@ -1,6 +1,7 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333333;
 $white: #FFFFFF;
+$lighter-grey: #EAEAEA;
 $light-grey: #CBCBCB;
 $grey: #BBBBBB;
 $dark-grey: #888888;
@@ -53,8 +54,7 @@ body {
         
         select {
             position: relative;
-            background: transparent;
-            background-image: none;
+            background: $lighter-grey;
             display: block;
             width: 100%;
             outline: none;
@@ -62,9 +62,8 @@ body {
             cursor: pointer;
             z-index: 2;
             border: none;
-            padding: 10px 10px 10px 5px;
-            text-overflow: '';
             text-indent: 5px;
+            height: 40px;
         
             &[multiple=multiple] {
                 height: auto;

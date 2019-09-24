@@ -62,7 +62,7 @@ class App extends Component {
             <div className="App">
                 <section className="CardArea">
                     <div className="FormSelect">
-                        <select onChange={this.onOptionChange}>
+                        <select className="SelectPlayer" onChange={this.onOptionChange}>
                             <option value="Select a Player...">Select a Player...</option>
                             {this.state.players}
                         </select>

@@ -39,8 +39,7 @@ body {
 }
 .App .CardArea select {
   position: relative;
-  background: transparent;
-  background-image: none;
+  background: #EAEAEA;
   display: block;
   width: 100%;
   outline: none;
@@ -48,9 +47,8 @@ body {
   cursor: pointer;
   z-index: 2;
   border: none;
-  padding: 10px 10px 10px 5px;
-  text-overflow: "";
   text-indent: 5px;
+  height: 40px;
 }
 .App .CardArea select[multiple=multiple] {
   height: auto;
