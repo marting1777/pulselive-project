@@ -72,6 +72,13 @@ body {
 .App .CardArea select::-ms-expand {
   display: none;
 }
+.App .CardArea .SelectPlayerMessage {
+  text-align: center;
+  padding: 10px;
+  color: #067206;
+  font-weight: bold;
+  font-size: 18px;
+}
 
 @media (min-width: 475px) {
   .App .CardArea {

@@ -24,7 +24,7 @@ class App extends Component {
         const body = await response.json()
         if (response.status !== 200) throw Error(body.message)
         this.setState({ response: body })
-        this.setState({ card: body[0] })
+        // this.setState({ card: `<p className>Select a Player<p>` })
         this.createPlayersHandler()
     }
 
@@ -67,8 +67,9 @@ class App extends Component {
                             {this.state.players}
                         </select>
                     </div>
-
-                    <Card fullPlayer={this.state.card}/>
+                    {this.state.card ?
+                        <Card fullPlayer={this.state.card}/>
+                    : <p className="SelectPlayerMessage">Select a Player to show his details!</p>}
                 </section>
             </div>
         )

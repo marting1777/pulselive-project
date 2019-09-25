@@ -5,6 +5,7 @@ $lighter-grey: #EAEAEA;
 $light-grey: #CBCBCB;
 $grey: #BBBBBB;
 $dark-grey: #888888;
+$green: rgb(6, 114, 6);
 
 body {
     font: 100% $font-stack;
@@ -91,6 +92,14 @@ body {
         
         select::-ms-expand {
             display: none;
+        }
+
+        .SelectPlayerMessage {
+            text-align: center;
+            padding: 10px;
+            color: $green;
+            font-weight: bold;
+            font-size: 18px;
         }
     }
 }
