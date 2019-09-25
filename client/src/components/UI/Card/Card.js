@@ -6,10 +6,6 @@ import BackgroundPattern from '../../../assets/images/background-pattern.png'
 
 class Card extends Component {
 
-    constructor (props) {
-        super(props)
-    }
-
     playerImageSrcHandler = () => {
         let playerImage
         if (this.props.fullPlayer) {
@@ -48,15 +44,14 @@ class Card extends Component {
                 {this.props.fullPlayer ? 
                 <Aux>
                     <div className="ImageContainer" style={{backgroundImage: `url(${BackgroundPattern})`}}>
-                        <img className="PlayerImage" src={this.playerImageSrcHandler()}/>
+                        <img className="PlayerImage" src={this.playerImageSrcHandler()} alt={this.props.fullPlayer.player.name.last}/>
                         <div className="LogoContainer">
-                            <img className="TeamLogo" src={this.teamImageSrcHandler()}/>
+                            <img className="TeamLogo" src={this.teamImageSrcHandler()} alt={this.props.fullPlayer.player.currentTeam.name}/>
                         </div>
                     </div>
                     <div className="StatsContainer">
                         <h2>{this.props.fullPlayer.player.name.first} {this.props.fullPlayer.player.name.last}</h2>
                         <p>{this.props.fullPlayer.player.info.positionInfo}</p>
-                        <img className="TeamLogo"/>
                         <ul className="StatsList">
                             {listOfStats}
                         </ul>

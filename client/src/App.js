@@ -67,6 +67,7 @@ class App extends Component {
                             {this.state.players}
                         </select>
                     </div>
+
                     <Card fullPlayer={this.state.card}/>
                 </section>
             </div>
